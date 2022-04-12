@@ -1,0 +1,198 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title PARKVILLE
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet')
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css')
+  link(href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet')
+  link(rel='stylesheet' href='/css/dashboard.css')
+// navbar
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+  .container-fluid
+    // offcanvas trigger
+    button.navbar-toggler.me-2(type='button' data-bs-toggle='offcanvas' data-bs-target='#offcanvasExample' aria-controls='offcanvasExample')
+      span.navbar-toggler-icon(data-bs-target='#offcanvasExample')
+    // offcanvas trigger end
+    a.navbar-brand.fw-bold.me-auto(href='#') PARKVILLE
+    button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      form.d-flex.ms-auto
+        .input-group.my-3.my-lg-0
+          input.form-control(type='text' placeholder='Search' aria-label="Recipient's username" aria-describedby='button-addon2')
+          button#button-addon2.btn.btn-primary(type='button')
+            i.bi.bi-search
+      li.nav-item.dropdown
+// navbar end
+// offcanvas
+#offcanvasExample.offcanvas.offcanvas-start.bg-dark.text-white.sidebar-nav(tabindex='-1' aria-labelledby='offcanvasExampleLabel')
+  .offcanvas-body.p-0
+    nav.navbar-dark
+      ul.navbar-nav
+        li
+          .text-muted.small.fw-bold.text-uppercase.px-3 CORE
+        li
+          a.nav-link.px-3.active(href='#')
+            span.me-2
+              i.bi.bi-speedometer2
+            span Dashboard
+        li.my-4
+          hr.dropdown-divider
+        li
+          .text-muted.small.fw-bold.text-uppercase.px-3 REGISTRATION
+        li
+          a.nav-link.px-3.sidebar-link(data-bs-toggle='collapse' href='#collapseExample' role='button' aria-expanded='false' aria-controls='collapseExample')
+            span.me-2
+              i.bi.bi-layout-split
+            span Vehicle Parking Unit
+            span.right-icon.ms-auto
+              i.bi.bi-chevron-down
+          #collapseExample.collapse
+            div
+              ul.navbar-nav.ps-3
+                li
+                  a.nav-link.px-3(href='/vregistration')
+                    span
+                      span.material-icons-outlined
+                        | directions_car
+                      |                                             Vehicle Registration
+                    br
+                    
+          a.nav-link.px-3.sidebar-link(data-bs-toggle='collapse' href='#collapseExample' role='button' aria-expanded='false' aria-controls='collapseExample')
+            span.me-2
+              i.bi.bi-layout-split
+            span Car Tyre Unit
+            span.right-icon.ms-auto
+              i.bi.bi-chevron-down
+          #collapseExample.collapse
+            div
+              ul.navbar-nav.ps-3
+                li
+                  a.nav-link.px-3(href='/tregistration')
+                    span
+                      span.material-icons-outlined garage
+                      |                                           Tyre Clinic
+                    br
+        li
+          a.nav-link.px-3.sidebar-link(data-bs-toggle='collapse' href='#collapseExample' role='button' aria-expanded='false' aria-controls='collapseExample')
+            span.me-2
+              i.bi.bi-layout-split
+            span Battery Section
+            span.right-icon.ms-auto
+              i.bi.bi-chevron-down
+          #collapseExample.collapse
+            div
+              ul.navbar-nav.ps-3
+                li
+                  a.nav-link.px-3(href='/bregistration')
+                    span
+                      span.material-icons-outlined battery_full
+                    |                                         Battery Hire
+                    br
+                    span
+        li
+          a.nav-link.px-3.sidebar-link(data-bs-toggle='collapse' href='#collapseExample' role='button' aria-expanded='false' aria-controls='collapseExample')
+            span.me-2
+              i.bi.bi-layout-split
+            span Signoff
+            span.right-icon.ms-auto
+              i.bi.bi-chevron-down
+          #collapseExample.collapse
+            div
+              ul.navbar-nav.ps-3
+                li
+                  a.nav-link.px-3(href='/signoffreg')
+                    span
+                      span.material-icons-outlined exit_to_app
+                    |                                       Vehicle
+                    span
+        li.my-4
+          hr.dropdown-divider
+        a.nav-link.px-3(href='#')
+          span
+            span.material-icons-outlined  manage_accounts
+            |                   Manage Accounts
+        a.nav-link.px-3(href='#')
+          span
+            span.material-icons-outlined settings
+            |                   Settings
+        a.nav-link.px-3(href='/login')
+          span
+            span.material-icons-outlined logout
+            |                     Logout
+// offcanvas end
+main.mt-5.pt-3
+  .container-fluid
+    .row
+      .col-md-12.fw-bold.fs-3 Dashboard
+    .row
+      .col-md-3
+        .card.text-white.bg-primary.mb-3(style='max-width: 18rem;')
+          .card-header CAR PARKING UNIT
+          .card-body
+            h5.card-title TOTAL REVENUE FOR VEHICLES
+            p #{new Intl.NumberFormat().format(total.totalParking)}Ugx
+
+      .col-md-3
+        .card.text-white.bg-primary.mb-3(style='max-width: 18rem;')
+          .card-header CAR TYRE UNIT
+          .card-body
+            h5.card-title TOTAL REVENUE FOR TYRES SOLD
+            p #{new Intl.NumberFormat().format(totalTyrePrice.totalTyrePrice)}Ugx
+      .col-md-3
+        .card.text-white.bg-primary.mb-3(style='max-width: 18rem;')
+          .card-header BATTERY SECTION
+          .card-body
+            h5.card-title TOTAL REVENUE FOR BATTERIES RENTED OUT
+            p #{new Intl.NumberFormat().format(totalBatteryPrice.totalBatteryPrice)}Ugx
+    .row
+      .col-md-6
+        .card
+          .card-header Charts
+          .card-body
+            #container
+              canvas#myChart(width='400' height='400')
+    br
+    .container.py-5.h-100
+    h4 VEHICLE UNIT
+    .container.row.justify-content-center
+      .card.bg-light
+        table.table
+          thead.thead-dark
+            tr
+              th(scope='col' class='th') NAME
+              th(scope='col' class='th') NUMBER PLATE
+              th(scope='col' class='th') PHONE NUMBER
+              th(scope='col' class='th') DATE/TIME
+              th(scope='col' class='th') DURATION
+              th(scope='col' class='th') DESCRIPTION
+              th(scope='col' class='th') PRICE
+          tbody
+            if vregistrations.length 
+            each vregistration in vregistrations
+             tr 
+             
+              td(class='td') #{vregistration.name}  
+              td(class='td') #{vregistration.numberplate}   
+              td(class='td') #{vregistration.phonenumber}
+              td(class='td') #{vregistration.date}
+              td(class='td') #{vregistration.duration}
+              td(class='td') #{vregistration.description}
+              td(class='td') #{vregistration.vehicleprice}
+              td
+                  div
+                        form(method="GET" action="/deleteVehicle/"+vregistration._id)
+                          input(type="hidden" name="delete" value=vregistration._id)
+                          button.btn.btn-danger(type='submit' data-bs-toggle='modal' onclick='myFunction()' data-bs-target='#staticBackdrop')
+                            img(src='../image/delete.png' style='width: 20px; height: 20px;')
+                        a(href="/vehicle/"+vregistration._id )
+                          button.btn.btn-primary(style='background-color:#f1f1f1; margin-right: 5px;' )
+                          img(src='../image/edit.jpg' style='width: 20px; height: 20px;')  
+    
+                        
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
+// <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+script(src='https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js')
+script(src='/js/dashboard.js')

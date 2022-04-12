@@ -1,0 +1,38 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title  Responsive Registration Form 
+  link(rel='stylesheet' href='/css/reg.css')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+button(onclick='window.print();') PRINT  
+.container
+  .title
+    | Signoff
+    br
+    | Registration Form
+  .content
+    form(method='POST', action='/signoffreg')
+      .user-details
+        .input-box
+          span.details Receipt Number
+          input(type='text' placeholder='Enter number' required='' name='receipt')
+        .input-box
+          span.details Date
+          input(type='date' placeholder='Enter date' required='' name='date')
+        .gender-details
+          input#dot-1(type='radio' name='gender')
+          input#dot-2(type='radio' name='gender')
+          input#dot-3(type='radio' name='gender')
+          span.gender-title Gender
+          .category
+            label(for='dot-1')
+              span.dot.one
+              span.gender Male
+            label(for='dot-2')
+              span.dot.two
+              span.gender Female
+            label(for='dot-3')
+              span.dot.three
+              span.gender Other
+        .button
+          input(type='submit' value='Register')

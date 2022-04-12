@@ -1,0 +1,36 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(charset='utf-8')
+  title Sign Up Form
+  link(rel='stylesheet' href='css/signup.css')
+.container
+  
+  form#createAccount(method='POST' action='/signup')
+    h1.form__title Create Account
+    .form__message.form__message--error
+    .form__input-group
+      input#signupUsername.form__input(type='text' autofocus='' placeholder='Username' name="username")
+      .form__input-error-message
+    .form__input-group
+      input.form__input(type='text' autofocus='' placeholder='Email Address' name="email")
+      .form__input-error-message
+    .form__input-group
+      input.form__input(type='password' autofocus='' placeholder='Password' name="password")
+      .form__input-error-message
+    .form__input-group
+      input.form__input(type='password' autofocus='' placeholder='Confirm password' name="confirmpassword")
+      .form__input-error-message
+    button.form__button(type='submit') Continue
+    p.form__text
+      a#linkLogin.form__link(href='login') Already have an account? Sign in
+// logo
+.logo
+  .circle
+    .white
+      .wide
+      .tall
+        .oval
+  .toyota PARKVILLE
+// end of logo
+script(src='js/signup.js')

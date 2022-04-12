@@ -1,0 +1,31 @@
+doctype html
+head
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(charset='utf-8')
+  title Login Form
+  link(rel='stylesheet' href='css/signup.css')
+.container
+  form#login.form(method='POST' action='/login' name='entryForm' onsubmit='return validate()' )
+    h1.form__title Login
+    .form__input-group
+      input.form__input(type='text'  placeholder='email' name='email')
+      .text-danger#lemail
+    .form__input-group
+      input.form__input(type='password' placeholder='Password' name='password')
+      .text-danger#lpassword
+    a(href='dashboard')
+      button.form__button(type='submit') Continue
+    p.form__text
+      a.form__link(href='#') Forgot your password?
+    p.form__text
+      a#linkCreateAccount.form__link(href='signup') Don&apos;t have an account? Create account
+// logo
+.logo
+  .circle
+    .white
+      .wide
+      .tall
+        .oval
+  .toyota PARKVILLE
+// end of logo
+script(src='js/login.js')

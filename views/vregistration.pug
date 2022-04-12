@@ -1,0 +1,63 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title  Responsive Registration Form | CodingLab 
+  link(rel='stylesheet' href='/css/reg.css')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+.container
+  .title Vehicle Registration
+  .content
+    form(method='POST', name='entryForm' action='/vregistration' onsubmit='return form()')
+      .user-details
+        .input-box Name Of Driver
+          input#name(type='text' placeholder='Enter your name'  name='name')
+          span#nameError
+        .input-box Number Plate
+          input#plate(type='text' placeholder='Enter number plate'  name='numberplate')
+          span#plateError
+        .input-box Color Of Vehicle
+          input#color(type='text' placeholder='Enter color'  name='colorofvehicle')
+          span#colorError
+        .input-box Phone Number
+          input#number(type='text' placeholder='Enter your number'  name='phonenumber')
+          span#numberError
+        .input-box Model
+          input#model(type='text' placeholder='Enter vehicle model' name='model')
+          span#modelError 
+        .input-box Date
+          input#date(type='datetime-local' placeholder='Enter date of arrival'  name='date')
+          span#dateError 
+        .input-box NIN
+          input#nin(type='text' placeholder='Enter NIN' name='nin')
+          span#ninError  
+        br  
+        label(for='duration') Duration
+        select#duration(name='duration')
+          option(value='day') Day
+          option(value='night') Night
+          option(value='less than 3hrs') Less than 3Hours  
+        br  
+        label(for='description') Description 
+        select#description(name='description')
+          option(value='personal car') Personal Car
+          option(value='truck') Truck 
+          option(value='taxi') Taxi
+          option(value='coaster') Coaster
+          option(value='motorbike') Motobike 
+        br  
+
+        label(for='vehicleprice') Price
+        select#price(name='vehicleprice')
+          option(value='2000') 2000
+          option(value='3000') 3000
+          option(value='4000') 4000
+          option(value='5000') 5000
+          option(value='10000') 10000
+
+      .button
+        input(type='submit' value='Register')
+    button#generateID Generate ID
+    input#generateidtxt(type='text')
+  script(src='/js/reg.js')  
+
+  

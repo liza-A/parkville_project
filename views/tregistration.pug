@@ -1,0 +1,33 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title  Responsive Registration Form | CodingLab 
+  link(rel='stylesheet' href='/css/reg.css')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+.container
+  .title Car Tyre Registration
+  .content
+    form(method='POST', action='/tregistration')
+      .user-details
+        .input-box
+          span.details Tyre Size
+          input(type='text' placeholder='Enter tyre size' required='' name='tyresize')
+        .input-box
+          span.details Tyre Make
+          input(type='text' placeholder='Enter tyre make' required='' name='tyremake')
+        .input-box
+          span.details Vehicle Model
+          input(type='text' placeholder='Enter model' required='' name='model')
+
+          label(for='service') Price
+          select#price(name='service')
+            option(value='tyre pressure') Tyre Pressure
+            option(value='puncture fixing') Puncture Fixing
+            option(value='valves') Valves
+        
+          label(for='price') Price
+          select#price(name='tyreprice')
+            option(value='500') 500
+            option(value='5000') 5000
+        .button
+          input(type='submit' value='Register')
